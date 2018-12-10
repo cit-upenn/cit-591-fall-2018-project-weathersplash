@@ -60,18 +60,17 @@ public class ExampleInstrumentedTest {
 //    public void searchCityPressure() {
 //        onView(withId(R.id.editText)).perform(typeText(STRING_TO_BE_TYPED), closeSoftKeyboard());
 //        onView(withText("Search")).perform(click());
-//        String expectedText = "Pressure";
-//        onView(withText(expectedText)).check(matches(isDisplayed())); //line 3
+//        onView(withId(R.id.search_WeatherImage)).check(matches(isDisplayed())); //line 3
 //    }
 
 
-//    @Test
-//    public void searchCityHumid() {
-//        onView(withId(R.id.editText)).perform(typeText(STRING_TO_BE_TYPED), closeSoftKeyboard());
-//        onView(withText("Search")).perform(click());
-//        String expectedText = "Humid";
-//        onView(withText(expectedText)).check(matches(isDisplayed())); //line 3
-//    }
+    @Test
+    public void searchCityHumid() {
+        onView(withId(R.id.editText)).perform(typeText(STRING_TO_BE_TYPED), closeSoftKeyboard());
+        onView(withText("Search")).perform(click());
+        String expectedText = "Humid";
+        onView(withText(expectedText)).check(matches(isDisplayed())); //line 3
+    }
 //    @Test
 //    public void searchCityForecast() {
 //        onView(withId(R.id.editText)).perform(typeText(STRING_TO_BE_TYPED), closeSoftKeyboard());
@@ -79,12 +78,13 @@ public class ExampleInstrumentedTest {
 //        String expectedText = "Day" +"";
 //        onView(withText(expectedText)).check(matches(isDisplayed())); //line 3
 //    }
-//    @Test
-//    public void geoMatch() {
-//        onView(withText("Get Current Location")).perform(click());
-//        String expectedText = "View";
-//        onView(withText(expectedText)).check(matches(isDisplayed())); //line 3
-//    }
+    @Test
+    public void geoMatch() {
+        onView(withText("Get Current Location")).perform(click());
+        String expectedText = "View";
+        onView(withId(R.id.WeatherImage)).check(matches(isDisplayed())); //line 3
+    }
+
 //
 //    @Test
 //    public void geoWeatherPressure() {
