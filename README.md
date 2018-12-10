@@ -5,7 +5,7 @@ Authors: Jiaying Guo, Yilin Sun, Xueyuan Yu
 ### Major Features:
 1. GPS Positioning 
 Apply 
-<img width="150" height="300" src="https://github.com/591Project2018/Working_Swipe/blob/master/APP_Screenshot/getFifthDayWeather.jpg"/>
+<div align="center"><img width="150" height="300" src="https://github.com/591Project2018/Working_Swipe/blob/master/APP_Screenshot/getFifthDayWeather.jpg"/></div>
 
 
 
