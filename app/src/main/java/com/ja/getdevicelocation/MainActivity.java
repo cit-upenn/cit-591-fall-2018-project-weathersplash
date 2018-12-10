@@ -283,22 +283,22 @@ public class MainActivity extends AppCompatActivity {
                 intent.putExtra("search_mainWeather2Image", res.get(0).getDiscription());
 
                 // Calculate the average temperature with the min and max temperature
-                double temp2 = res.get(0).getTemMax() / 2 + res.get(0).getTemMax() / 2;
+                double temp2 = res.get(0).getTemMin() ;
                 temp2 = (double) (Math.round(temp2 * 100) / 100.0);
                 intent.putExtra("search_mainWeather2", res.get(0).getDiscription() + "\n\n " + temp2 + " °C \n\n Humid: \n" + String.valueOf(res.get(0).getHumid()) + "\n\n Pressure: \n" + String.valueOf(res.get(0).getPressure()));
 
                 intent.putExtra("search_mainWeather3Image", res.get(1).getDiscription());
-                double temp3 = res.get(1).getTemMax() / 2 + res.get(1).getTemMax() / 2;
+                double temp3 = res.get(1).getTemMin() ;
                 temp3 = (double) (Math.round(temp3 * 100) / 100.0);
                 intent.putExtra("search_mainWeather3", res.get(1).getDiscription() + "\n\n " + temp3 + " °C \n\n Humid: \n" + String.valueOf(res.get(1).getHumid()) + "\n\n Pressure: \n" + String.valueOf(res.get(1).getPressure()));
 
                 intent.putExtra("search_mainWeather4Image", res.get(2).getDiscription());
-                double temp4 = res.get(2).getTemMax() / 2 + res.get(2).getTemMax() / 2;
+                double temp4 = res.get(2).getTemMin() ;
                 temp4 = (double) (Math.round(temp4 * 100) / 100.0);
                 intent.putExtra("search_mainWeather4", res.get(2).getDiscription() + "\n\n " + temp4 + " °C \n\n Humid: \n" + String.valueOf(res.get(2).getHumid()) + "\n\n Pressure: \n" + String.valueOf(res.get(2).getPressure()));
 
                 intent.putExtra("search_mainWeather5Image", res.get(3).getDiscription());
-                double temp5 = res.get(3).getTemMax() / 2 + res.get(3).getTemMax() / 2;
+                double temp5 = res.get(3).getTemMin() ;
                 temp5 = (double) (Math.round(temp5 * 100) / 100.0);
                 intent.putExtra("search_mainWeather5", res.get(3).getDiscription() + "\n\n " + temp5 + " °C \n\n Humid: \n" + String.valueOf(res.get(3).getHumid()) + "\n\n Pressure: \n" + String.valueOf(res.get(3).getPressure()));
 

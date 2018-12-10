@@ -61,8 +61,12 @@ public class ForecastCityAPI {
 			double tempMin = obMain.getDouble("temp_min") - TEMP_CONVERT;
 			tempMin=(double)(Math.round(tempMin*100)/100.0);
 
-			double tempMax = obMain.getDouble("temp_max") - TEMP_CONVERT;
-			tempMax=(double)(Math.round(tempMax*100)/100.0);
+			double seaLevel = obMain.getDouble("sea_level")- TEMP_CONVERT;
+			seaLevel=(double)(Math.round(seaLevel*100)/100.0);
+
+			double groundLevel = obMain.getDouble("grnd_level")- TEMP_CONVERT;
+			groundLevel=(double)(Math.round(groundLevel*100)/100.0);
+
 
 			double pressure = obMain.getDouble("pressure");
 			//System.out.println(pressure);
@@ -82,7 +86,7 @@ public class ForecastCityAPI {
 				e.printStackTrace();
 			}
 
-			DailyWeather dWeather = new DailyWeather(city,tempMin,tempMax,descript,pressure,humidity, cal);
+			DailyWeather dWeather = new DailyWeather(city,tempMin,seaLevel,groundLevel,descript,pressure,humidity, cal);
 			dWeatherArray.add(dWeather);
 		}
 

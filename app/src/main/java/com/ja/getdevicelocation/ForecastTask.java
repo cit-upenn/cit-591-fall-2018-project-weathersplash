@@ -88,9 +88,16 @@ public class ForecastTask extends AsyncTask<String, Void, String[]> {
                 intent.putExtra("mainWeather", res.get(i).getDiscription());
 
                 // Calculate the average temperature with max Temp and min Temp
-                double temp = res.get(i).getTemMin() / 2 + res.get(i).getTemMax() / 2;
+                double temp = res.get(i).getTemMin();
                 temp = (double) (Math.round(temp * 100) / 100.0);
                 intent.putExtra("temp", String.valueOf(temp) + " °C");
+                double seaLevel=res.get(i).getSeaLevel();
+                seaLevel=(double)(Math.round(seaLevel*100)/100.0);
+                double groundLevel=res.get(i).getGroundLevel();
+                groundLevel=(double)(Math.round(groundLevel*100)/100.0);
+
+                intent.putExtra("seaLevel","sealevel:\n"+String.valueOf(seaLevel));
+                intent.putExtra("groundLevel","grndlevel:\n"+String.valueOf(groundLevel));
 
                 // Send the forecast URL to next view
                 intent.putExtra("forecastURL", response[2]);

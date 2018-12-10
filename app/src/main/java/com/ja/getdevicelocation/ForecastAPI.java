@@ -56,8 +56,11 @@ public class ForecastAPI {
 			tempMin=(double)(Math.round(tempMin*100)/100.0);
 
 
-			double tempMax = obMain.getDouble("temp_max")- TEMP_CONVERT;
-			tempMax=(double)(Math.round(tempMax*100)/100.0);
+			double seaLevel = obMain.getDouble("sea_level")- TEMP_CONVERT;
+			seaLevel=(double)(Math.round(seaLevel*100)/100.0);
+
+			double groundLevel = obMain.getDouble("grnd_level")- TEMP_CONVERT;
+			groundLevel=(double)(Math.round(groundLevel*100)/100.0);
 
 			double pressure = obMain.getDouble("pressure");
 
@@ -69,38 +72,38 @@ public class ForecastAPI {
 
 //			String date="2017-01-30 18:00:00";
 			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-            Calendar cal = Calendar.getInstance();
+			Calendar cal = Calendar.getInstance();
 
 
 			try {
-                cal.setTime(sdf.parse(date));               // parse input
+				cal.setTime(sdf.parse(date));               // parse input
 
 			} catch (ParseException e) {
 				e.printStackTrace();
 			}
 
-			DailyWeather dWeather = new DailyWeather(city,tempMin,tempMax,descript,pressure,humidity, cal);
+			DailyWeather dWeather = new DailyWeather(city,tempMin,seaLevel,groundLevel,descript,pressure,humidity, cal);
 			dWeatherArray.add(dWeather);
 		}
 
 		List<DailyWeather> res=arrayProcess(dWeatherArray);
-        Log.i("MainForecast",""+res.get(3).getPressure()+res.get(3).getHumid());
+		Log.i("MainForecast",""+res.get(3).getPressure()+res.get(3).getHumid());
 		return res;
 	}
 
-    private List<DailyWeather> arrayProcess(List<DailyWeather> dailyWeathers){
-	    int today=dailyWeathers.get(0).getCal().get(Calendar.DAY_OF_MONTH);
-	    List<DailyWeather> res=new ArrayList<>();
-	    for(DailyWeather day:dailyWeathers){
-	        if(day.getCal().get(Calendar.DAY_OF_MONTH)>today && day.getCal().get(Calendar.HOUR_OF_DAY)==0){
-                res.add(day);
-            }
-        }
-        return res;
-    }
+	private List<DailyWeather> arrayProcess(List<DailyWeather> dailyWeathers){
+		int today=dailyWeathers.get(0).getCal().get(Calendar.DAY_OF_MONTH);
+		List<DailyWeather> res=new ArrayList<>();
+		for(DailyWeather day:dailyWeathers){
+			if(day.getCal().get(Calendar.DAY_OF_MONTH)>today && day.getCal().get(Calendar.HOUR_OF_DAY)==0){
+				res.add(day);
+			}
+		}
+		return res;
+	}
 
 
-    /**
+	/**
 	 * Makes the API call and returns the JSON result as a String
 	 * @param url
 	 * @return
@@ -150,4 +153,5 @@ public class ForecastAPI {
 	}
 
 }
+
 

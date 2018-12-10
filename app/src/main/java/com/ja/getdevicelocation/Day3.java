@@ -15,38 +15,25 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 
-/**
- * author: Jiaying Guo
- * Get the forecast information from Day2 class and display them in Day3's view, swipeRight gesture triggers
- * a new activity in Day4 class, and send the forecast information of day 4 to its view.
- */
-
 public class Day3 extends AppCompatActivity {
-    private TextView real_weather, real_pressure, location,real_temperature,real_humid,temp;
+    private TextView real_weather, real_pressure, location,real_temperature,real_humid,real_groundLevel,real_seaLevel;
     private String url;
-
-    /**
-     * Override the default onCreate method, when this class's activity and view is created, it will
-     * receive and display the forecast information passed from Day2 class, including temperature, pressure and etc. It
-     * also includes a swipe gesture activity involving Day4 class.
-     * @param savedInstanceState
-     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_day3);
-
-        // Get the intent and passed-in forecast information and the forecast API call URL for later calls
         Intent intent=getIntent();
         String city=intent.getStringExtra("city");
         String pressure=intent.getStringExtra("pressure");
         String mainWeather=intent.getStringExtra("mainWeather");
         String humid=intent.getStringExtra("humid");
         String temperature=intent.getStringExtra("temp");
-        url=intent.getStringExtra("forecastURL");
 
-        // Transform the weather description to icons
+        String groundLevel=intent.getStringExtra("groundLevel");
+        String seaLevel=intent.getStringExtra("seaLevel");
+
         ImageView view=findViewById(R.id.WeatherImage3);
+
         if(mainWeather.toLowerCase().contains("rain")) {
             Picasso.with(this).load(R.drawable.rainy).resize(300,300).into(view);
         }else if (mainWeather.toLowerCase().contains("snow")) {
@@ -60,12 +47,12 @@ public class Day3 extends AppCompatActivity {
         }else{
             Picasso.with(this).load(R.drawable.sunny).resize(300,300).into(view);
         }
-
-        // Find and set the text views with the passed-in information
         location=findViewById(R.id.location3);
         real_weather=findViewById(R.id.weather3);
         real_pressure=findViewById(R.id.pressure3);
         real_temperature=findViewById(R.id.temperature3);
+        real_groundLevel=findViewById(R.id.groundLevel3);
+        real_seaLevel=findViewById(R.id.seaLevel3);
         real_humid=findViewById(R.id.humid3);
 
         location.setText(city+ " Day3");
@@ -73,9 +60,11 @@ public class Day3 extends AppCompatActivity {
         real_pressure.setText(pressure);
         real_temperature.setText(temperature);
         real_humid.setText(humid);
+        real_seaLevel.setText(seaLevel);
+        real_groundLevel.setText(groundLevel);
+        url=intent.getStringExtra("forecastURL");
 
 
-        // Display the date, which is 2 days past current day
         Date now=new Date();
         Calendar calendar=new GregorianCalendar();
         calendar.add(calendar.DATE,2);
@@ -84,41 +73,26 @@ public class Day3 extends AppCompatActivity {
         TextView third=findViewById(R.id.Day3);
         third.setText(todayString);
 
-
-        /**
-         *  Anonymous swipe listener method on location name, e.g. "Mountain View".
-         *  When swipe right is performed on the location text area, a forecast task instance is created for forecast API calls
-         *  and passing the information on day 4 to Day4 activity.
-         */
         location.setOnTouchListener(new OnSwipeTouchListener(Day3.this) {
-            /**
-             *  swipeTop: display a pop-up message: "top"
-             */
             public void onSwipeTop() {
                 Toast.makeText(Day3.this, "top", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(WeatherDisplay.this,  "Sorry, couldn't get your location!", Toast.LENGTH_LONG).show();
 
             }
-
-            /**
-             *  swipeRight: display a pop-up message: "right" and trigger a Day 3 activity
-             */
             public void onSwipeRight() {
-                Toast.makeText(Day3.this, "right", Toast.LENGTH_SHORT).show();
                 ForecastAPI forecastAPI=new ForecastAPI();
-                ForecastTask forecastTask=new ForecastTask(Day3.this, Day4.class);
-                forecastTask.execute(url,"2");
-            }
 
-            /**
-             *  swipeLeft: display a pop-up message: "left"
-             */
+                Toast.makeText(Day3.this, "right", Toast.LENGTH_SHORT).show();
+                //Intent intent=new Intent(WeatherDisplay.this, Day2.class);
+                ForecastTask forecastTask=new ForecastTask(Day3.this, Day4.class);
+                forecastTask.execute(url,"2"); //checked
+//                ForecastAPI forecastAPI=new ForecastAPI();
+
+
+            }
             public void onSwipeLeft() {
                 Toast.makeText(Day3.this, "left", Toast.LENGTH_SHORT).show();
             }
-
-            /**
-             * swipeBottom: display a pop-up message:"bottom"
-             */
             public void onSwipeBottom() {
                 Toast.makeText(Day3.this, "bottom", Toast.LENGTH_SHORT).show();
             }

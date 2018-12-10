@@ -7,17 +7,19 @@ public class DailyWeather {
 
     private double temMin;
     private String city;
-    private double temMax;
+    private double seaLevel;
     private String discript;
     private double humid;
     private double pressure;
     private Calendar cal;
+    private double groundLevel;
 
 
-    public DailyWeather(String city,double temMin,double temMax,String discript, double pressure, double humid, Calendar cal) {
+    public DailyWeather(String city,double temMin,double seaLevel,double groundLevel,String discript, double pressure, double humid, Calendar cal) {
         this.temMin=temMin;
         this.city=city;
-        this.temMax=temMax;
+        this.seaLevel=seaLevel;
+        this.groundLevel=groundLevel;
         this.discript=discript;
         this.pressure=pressure;
         this.humid=humid;
@@ -32,10 +34,13 @@ public class DailyWeather {
         return temMin;
     }
 
-    public double getTemMax() {
-        return temMax;
+    public double getSeaLevel() {
+        return seaLevel;
     }
 
+    public double getGroundLevel() {
+        return groundLevel;
+    }
     public String getCity() {
         return city;
     }
@@ -60,4 +65,3 @@ public class DailyWeather {
         this.cal=cal;
     }
 }
-
