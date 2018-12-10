@@ -1,8 +1,8 @@
-### Android Weather App Project
+## Android Weather App Project
 * This project is an android weather app application for CIT 591 Intro to Software Engineering, University of Pennsylvannia.
 Authors: Jiaying Guo, Yilin Sun, Xueyuan Yu
 
-## Major Features:
+### Major Features:
 1. GPS Positioning 
 Apply 
 2. City Search
