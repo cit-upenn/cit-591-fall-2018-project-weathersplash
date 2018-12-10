@@ -5,7 +5,7 @@ Authors: Jiaying Guo, Yilin Sun, Xueyuan Yu
 ### Major Features:
 1. GPS Positioning 
 Apply 
-![Alt Text](https://github.com/591Project2018/Working_Swipe/blob/master/APP_Screenshot/getFifthDayWeather.jpg)
+<img width="50" height="100" src="https://github.com/591Project2018/Working_Swipe/blob/master/APP_Screenshot/getFifthDayWeather.jpg"/>
 2. City Search
 3. Current Weather Info
 4. Future 4 days forecast info
