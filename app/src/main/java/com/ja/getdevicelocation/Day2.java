@@ -28,6 +28,8 @@ public class Day2 extends AppCompatActivity {
             String mainWeather=intent.getStringExtra("mainWeather");
             String humid=intent.getStringExtra("humid");
             String temperature=intent.getStringExtra("temp");
+            String tempMax=intent.getStringExtra("tempMax");
+            String tempMin=intent.getStringExtra("tempMin");
 
             ImageView view=findViewById(R.id.WeatherImage2);
 
@@ -61,13 +63,16 @@ public class Day2 extends AppCompatActivity {
             real_weather=findViewById(R.id.weather2);
             real_pressure=findViewById(R.id.pressure2);
             real_temperature=findViewById(R.id.temperature2);
-
+            real_tempMax=findViewById(R.id.tempMax2);
+            real_tempMin=findViewById(R.id.tempMin2);
             real_humid=findViewById(R.id.humid2);
 
             location.setText(city+ " Day2");
             real_weather.setText(mainWeather);
             real_pressure.setText(pressure);
             real_temperature.setText(temperature);
+            real_tempMax.setText(tempMax);
+            real_tempMin.setText(tempMin);
             real_humid.setText(humid);
 
             url=intent.getStringExtra("forecastURL");
