@@ -35,7 +35,7 @@ import static org.junit.Assert.*;
 
 /**
  * Instrumented test, which will execute on an Android device.
- *
+ * author: Jiaying Guo
  * @see <a href="http://d.android.com/tools/testing">Testing documentation</a>
  */
 @RunWith(AndroidJUnit4.class)
@@ -48,6 +48,9 @@ public class ExampleInstrumentedTest {
     public ActivityTestRule<MainActivity> mainActivityRule = new ActivityTestRule<>(
             MainActivity.class);
 
+    /**
+     * Test if the user's input matches the actual weather info display's city name
+     */
     @Test
     public void searchCity() {
         onView(withId(R.id.editText)).perform(typeText(STRING_TO_BE_TYPED), closeSoftKeyboard());
@@ -56,28 +59,9 @@ public class ExampleInstrumentedTest {
         onView(withText(expectedText)).check(matches(isDisplayed())); //line 3
     }
 
-//    @Test
-//    public void searchCityPressure() {
-//        onView(withId(R.id.editText)).perform(typeText(STRING_TO_BE_TYPED), closeSoftKeyboard());
-//        onView(withText("Search")).perform(click());
-//        onView(withId(R.id.search_WeatherImage)).check(matches(isDisplayed())); //line 3
-//    }
-
-
-    @Test
-    public void searchCityHumid() {
-        onView(withId(R.id.editText)).perform(typeText(STRING_TO_BE_TYPED), closeSoftKeyboard());
-        onView(withText("Search")).perform(click());
-        String expectedText = "Humid";
-        onView(withText(expectedText)).check(matches(isDisplayed())); //line 3
-    }
-//    @Test
-//    public void searchCityForecast() {
-//        onView(withId(R.id.editText)).perform(typeText(STRING_TO_BE_TYPED), closeSoftKeyboard());
-//        onView(withText("Search")).perform(click());
-//        String expectedText = "Day" +"";
-//        onView(withText(expectedText)).check(matches(isDisplayed())); //line 3
-//    }
+    /**
+     * Test the GPS information is in accordance with the current location, android is hardcoded with MountainView as the current location
+     */
     @Test
     public void geoMatch() {
         onView(withText("Get Current Location")).perform(click());
