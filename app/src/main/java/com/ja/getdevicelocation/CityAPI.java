@@ -60,7 +60,7 @@ public class CityAPI {
     public String createURL(String cityName){
         String endPoint = "https://api.openweathermap.org";
         String url2 = "/data/2.5/weather?q=";
-        String key = "&appid=93878e3b8fc1c0224d9e17f353cf474f";
+        String key = Enter your API key;
         String weatherUrl = endPoint + url2 + cityName + key;
         return  weatherUrl;
     }
