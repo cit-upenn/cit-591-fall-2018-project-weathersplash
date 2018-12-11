@@ -22,7 +22,7 @@ Apply
 3. Current Weather Info
 
 <div align="center">
-  <img width="150" height="300" src="https://github.com/591Project2018/Working_Swipe/blob/master/APP_Screenshot/getCurrentlocationweather.jpg"/>
+  <img width="150" height="300" src="https://github.com/591Project2018/Working_Swipe/blob/master/APP_Screenshot/currentWeather.jpg"/>
 </div>
 
 4. Future 4 days forecast info
