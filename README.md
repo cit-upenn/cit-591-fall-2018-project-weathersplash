@@ -2,9 +2,10 @@
 * This project is an android weather app application for CIT 591 Intro to Software Engineering, University of Pennsylvannia.
 Authors: Jiaying Guo, Yilin Sun, Xueyuan Yu
 
-Use 4 OpenWeatherMap APIs to get current and weather forecast information of different locations and cities. Sample Links:
+Use 4 OpenWeatherMap APIs to get current and weather forecast information of different locations and cities. Run multiple Expresso and Junit tests on the application and use PIXELXL and NEXUS emulators for running and testing the app.
 
-
+### Sample Links For API calls:
+You need to generate your own API key and add it into 4 API.java files before making the calls.
 1. https://samples.openweathermap.org/data/2.5/weather?lat=35&lon=139&appid=b6907d289e10d714a6e88b30761fae22 (current by city namesgeo-coordinates)
 2. https://samples.openweathermap.org/data/2.5/weather?q=London,uk&appid=b6907d289e10d714a6e88b30761fae22 (current by city names)
 3. https://samples.openweathermap.org/data/2.5/forecast?lat=35&lon=139&appid=b6907d289e10d714a6e88b30761fae22  (5-day 3-hour forecast by geo-coordinates)
