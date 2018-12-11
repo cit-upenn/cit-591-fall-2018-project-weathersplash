@@ -1,4 +1,4 @@
-## Android Weather App Project
+## Android Weather App Project -- WeatherSplash
 * This project is an android weather app application for CIT 591 Intro to Software Engineering, University of Pennsylvannia.
 Authors: Jiaying Guo, Yilin Sun, Xueyuan Yu
 
