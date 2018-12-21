@@ -24,6 +24,7 @@ Get Current Location button and jump to the view with current day's weather info
 
 
 2. City Search
+
 User enter a city name in the main page, and press Search button. Then they will enter the page with current day weather info and 4-day forecasts of that city.
 
 <div align="center">
@@ -32,6 +33,7 @@ User enter a city name in the main page, and press Search button. Then they will
 
 
 3. Current Weather Info
+
 Use the OpenWeatherMap API to get instant weather information of specified locations and cities. Display in search views and current location's views
 
 <div align="center">
@@ -39,6 +41,7 @@ Use the OpenWeatherMap API to get instant weather information of specified locat
 </div>
 
 4. Future 4 days forecast info
+
  Define a swipe gesture listener and generic API call class. User can swipe right to check out forecast on future days after entering the page with current location's weather. However, all infos are displayed on the same page when user enter the search view.
 
 <div align="center">
